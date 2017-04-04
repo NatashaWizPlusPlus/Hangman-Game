@@ -1,0 +1,30 @@
+.page-header{
+	background-color: #ffffff;
+
+}
+
+#answer{
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+}
+
+body{
+	background-color: #46565b;
+}
+
+
+.list-group{
+	width: 300px;
+}
+
+.list-group-item.active{
+	background-color: #ffffff;
+	color: #46565b;
+}
+
+h1{
+
+}
+
+

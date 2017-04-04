@@ -1,0 +1,21 @@
+Pseudocode for Hangman //Guess the Country
+
+//Press a key to get started
+
+//When a key is pressed start the game
+
+//Pick a random Country name
+
+//Guess the letter
+
+//When a letter is used, log this in the window
+
+//When a letter is pressed that is correct, fill in the blanks
+
+//When a letter is pressed that is wrong, start the hangman
+
+//Hangman has 10 guesses
+
+//After 10 wrong guesses the game is over
+
+//When the word is guessed correctly “You Win!”
