@@ -1,16 +1,19 @@
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", 
+				"p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
 var wins=0; // Variable Wins
 
 var losses=0; // Variable losses
 
 //Define our array for countries
 
-var countries = ["Australia", "America", "Morocco", "Holland", 
-				"Germany", "England", "France", "Belgium", 
-				"Norway", "Finland", "Polen", "Iceland", 
-				"Sweden", "Thailand","China", "Indonesia", 
-				"Russia", "Venezuela", "Chile", "Argentina", 
-				"Mexico", "Guyana","Surinam", "England", 
-				"Ireland", "India", "Pakistan", "Afghanistan","Canada", "Uganda", "Brazil", "Peru"];
+var countries = ["australia", "america", "morocco", "holland", 
+				"germany", "england", "france", "belgium", 
+				"norway", "finland", "polen", "iceland", 
+				"sweden", "thailand","china", "indonesia", 
+				"russia", "venezuela", "chile", "argentina", 
+				"mexico", "guyana","surinam", "england", 
+				"ireland", "india", "pakistan", "afghanistan","canada", "uganda", "brazil", "peru"];
 
 //Write the statement to randomly pick a country name
 
@@ -20,76 +23,68 @@ var randomPick = countries[Math.floor(Math.random() * countries.length)];
 
 var answerArray = [];
 
+var count
 //This is the variable that is called to press a key to start
 
-function start(){
+function start(randomPick){
 
 	 //this is the "for statement" to initialize, check, change the random country name
 	for (var i = 0; i<randomPick.length; i++)
 	{
-		//This is what the user will see before entering a correct letter
+		//Filling in the empty array with under scores
 		answerArray[i]= "_";
 	}
 
-	//This is the the answer that is sent to the html id output
+	//Put the answer in a string
 	document.getElementById("answer").innerHTML = answerArray.join(" ");
 }
 
-		//Filling in the empty array
+function letter(randomPick,userKey){
 
+	// var letter = document.getElementById("letter").value;
+
+	if (userKey.length>0){
+
+		for (var i =0; i<randomPick.length; i++)
+		{
+			if (randomPick[i]===userKey)
+			{
+
+				answerArray[i] = userKey;
+
+			}
+		}
+		
+ 		// count++;
+
+		document.querySelector("#answer").innerHTML = answerArray.join(" ");
+	}
+
+	// if(count>5)
+	// {
+
+	// 	document.getElementById("stat").innerHTML = "Slow guesser";
+
+	// }
+}
+
+		//Selecting a random country with under scores on reload
 		start (randomPick);
 			document.onkeyup = function (event){
 		
-			var letter = event.key.toLowerCase();
+			var userKey = event.key.toLowerCase();
+
+			letter(randomPick,userKey);
 	
 			}
 
 
 
+
 //Selected letter by user
 
-// function Letter (){
-
-// 	var letter = document.getElementById().value;
-
-// 	if (letter.length>0){
-
-// 		for (var i =0; i<randomPick.length; i++)
-// 		{
-// 			if (randomPick[i]===letter)
-// 			{
-
-// 				answerArray[i] = letter;
-
-// 			}
-// 		}
-
-// 		count++;
-// 		document.getElementById("counter").innerHTML = "Number of click: " + count;
-// 		document.getElementById("answer").innerHTML = answerArray.join("");
-// 	}
-
-// 	if(count>5)
-// 	{
-
-// 		document.getElementById("stat").innerHTML = "Slow guesser";
-
-// 	}
-// }
 
 
-
-// function isTheLetterInsideTheWord(countries, letter){
-// 	var index = countries.indexOf(letter)> -1;
-// 	return index;
-// }
-// var empty = [];
-
-// 	for (var i = 0; i<pick.length; i++){
-
-// 		empty[i] = "_";
-	
-// 	}
 
 //Match guessed letter to the Country name
 
